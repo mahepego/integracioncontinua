@@ -1,5 +1,6 @@
 from django.db import models
 from evento.models import Evento
+from django.urls import reverse
 
 # Create your models here.
 
@@ -32,3 +33,6 @@ class Persona(models.Model):
     def __str__(self):
         txt="{0} / Evento: {1}"
         return txt.format(self.nombreCompleto(), self.evento)
+
+    def get_absolute_url(self):
+        return reverse('persona:persona_detail', kwargs={"pk": self.pk}) 

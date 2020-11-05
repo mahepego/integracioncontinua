@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h2">Nombre: {{ registro.persona }}</h2>
+    <a href="{% url 'registro:homeRegistro' %}">Regresar</a>
+    <a href="{% url 'registro:registro_update' registro.pk %}">Modificar</a>
+    <a href="{% url 'registro:registro_delete' registro.pk %}">Eliminar</a>
+    <hr/>
+
+    <p>Persona: {{ registro.persona }}</p>
+    <p>Evento: {{ registro.evento }}</p>
+    <p>Fecha Evento: {{ registro.fechaEvento }}</p>  
+    
+    <div class="float-right">
+        <a href="{% url 'registro:homeRegistro' %}" class="btn btn-danger">Regresar</a>
+    </div> 
+{% endblock  %}

@@ -39,5 +39,5 @@ class UbicacionUpdateView(UpdateView):
 
 class UbicacionDeleteView(DeleteView):
     model = Ubicacion
-    success_url = reverse_lazy('ubicacion:home')
+    success_url = reverse_lazy('ubicacion:homeUbicacion')
     template_name = 'ubicacion/confirm_ubicacion_deletion.html'

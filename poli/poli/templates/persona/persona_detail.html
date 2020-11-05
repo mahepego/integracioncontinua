@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h2">Nombre: {{ persona.nombres }}</h2>
+    <a href="{% url 'persona:homePersona' %}">Regresar</a>
+    <a href="{% url 'persona:persona_update' persona.pk %}">Modificar</a>
+    <a href="{% url 'persona:persona_delete' persona.pk %}">Eliminar</a>
+    <hr/>
+
+    <p>Número Identificacion: {{ persona.numIdentificacion }}</p>
+    <p>Tipo Identificacion: {{ persona.tipoIdentificacion }}</p>
+    <p>Apellido Paterno: {{ persona.apellidoPaterno }}</p>   
+    <p>Apellido Materno: {{ persona.apellidoMaterno }}</p>   
+    <p>Nombres: {{ persona.nombres }}</p>   
+    <p>Fecha Nacimiento: {{ persona.fechaNacimiento }}</p>   
+    <p>Sexo: {{ persona.sexo }}</p>   
+    <p>Telefono: {{ persona.telefono }}</p>   
+    <p>Direccion: {{ persona.direccion }}</p>   
+    <p>E-mail: {{ persona.email }}</p>   
+    <p>Evento: {{ persona.evento }}</p>   
+    
+    <div class="float-right">
+        <a href="{% url 'persona:homePersona' %}" class="btn btn-danger">Regresar</a>
+    </div> 
+{% endblock  %}

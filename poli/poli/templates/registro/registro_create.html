@@ -3,9 +3,9 @@
 {% block content %}
     <h2>
         {% if not edit %}
-           Crear Ubicación
+            Registrar a un evento
         {% else %}
-            Editar Ubicación
+            Editar un Registro
         {% endif %}
     </h2>
     <form method="post">
@@ -13,7 +13,7 @@
         {{ form.as_p }}
 
         <div class="float-right">
-            <a href="{% url 'ubicacion:homeUbicacion' %}" class="btn btn-danger">Regresar</a>
+            <a href="{% url 'registro:homeRegistro' %}" class="btn btn-danger">Regresar</a>
             <button class="btn btn-primary" type="submit">Guardar</button>
         </div>
     </form>

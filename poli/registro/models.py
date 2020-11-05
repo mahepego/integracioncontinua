@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from persona.models import Persona
 from evento.models import Evento
 
@@ -18,3 +19,6 @@ class Registro(models.Model):
             letraSexo="o"
         fecReg=self.fechaEvento.strftime("%A %d/%m/%Y %H:/%M:/%S")
         return txt.format(self.persona.nombreCompleto(), letraSexo, self.evento, fecReg)
+
+    def get_absolute_url(self):
+        return reverse('registro:registro_detail', kwargs={"pk": self.pk})

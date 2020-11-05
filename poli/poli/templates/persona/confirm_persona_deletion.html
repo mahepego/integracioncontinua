@@ -5,9 +5,9 @@
         <form method="post">
             {% csrf_token %}
 
-            <p>Desea eliminar la Ubicación <b>"{{ ubicacion.nombre }}"</b> ?</p>
+            <p>Desea eliminar la Persona <b>"{{ persona.nombres }}"</b> ?</p>
 
-            <a href="{% url 'ubicacion:homeUbicacion' %}" class="btn btn-primary">No</a>
+            <a href="{% url 'persona:homePersona' %}" class="btn btn-primary">No</a>
             <button class="btn btn-danger" type="submit">Si</button>
         </form>
     </div>

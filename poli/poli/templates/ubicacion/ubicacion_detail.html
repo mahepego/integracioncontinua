@@ -2,7 +2,7 @@
 
 {% block content %}
     <h2">Nombre: {{ ubicacion.nombre }}</h2>
-    <a href="{% url 'ubicacion:home' %}">Regresar</a>
+    <a href="{% url 'ubicacion:homeUbicacion' %}">Regresar</a>
     <a href="{% url 'ubicacion:ubicacion_update' ubicacion.pk %}">Modificar</a>
     <a href="{% url 'ubicacion:ubicacion_delete' ubicacion.pk %}">Eliminar</a>
     <hr />
@@ -12,6 +12,6 @@
     <p>Capacidad: {{ ubicacion.capacidad }}</p>   
     
     <div class="float-right">
-        <a href="{% url 'ubicacion:home' %}" class="btn btn-danger">Regresar</a>
+        <a href="{% url 'ubicacion:homeUbicacion' %}" class="btn btn-danger">Regresar</a>
     </div> 
 {% endblock  %}
