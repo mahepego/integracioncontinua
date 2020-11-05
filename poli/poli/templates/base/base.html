@@ -1,0 +1,65 @@
+{% load static %} 
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    {% block extrahead %} 
+    {% endblock %}
+
+    <meta charset="UTF-8">
+    {% block extrastatic %} 
+    {% endblock %}
+
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} Programación de Eventos {% endblock %}</title>
+</head>
+<body>
+
+    {% block navbar %} 
+
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>                        
+            </button>
+            <a class="navbar-brand" href="#">LOGO</a>
+          </div>
+          <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+              <li><a href="{% url 'evento:homeEvento' %}">Eventos</a></li>
+              <li><a href="#">Registro</a></li>
+              <li><a href="#">Personas</a></li>
+              <li><a  href="{% url 'ubicacion:home' %}">Ubicacion</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="#"><span class="glyphicon glyphicon-user"></span> Registrarse</a></li>
+              <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Acceder</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      {% endblock %}
+
+    {% block header %} 
+
+    {% endblock %}
+    
+    {% block content %}
+      Este es el bloque del contenido...
+    {% endblock %}
+    
+    {% block footer %}
+    {% endblock %}
+    
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+
+    {% block extrajs %} 
+    {% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h2">Nombre: {{ evento.nombre }}</h2>
+    <a href="{% url 'evento:homeEvento' %}">Regresar</a>
+    <a href="{% url 'evento:evento_update' evento.pk %}">Modificar</a>
+    <a href="{% url 'evento:evento_delete' evento.pk %}">Eliminar</a>
+    <hr />
+
+    <p>Código: {{ evento.codigo }}</p>
+    <p>Tipo: {{ evento.tipo }}</p>
+    <p>Duración: {{ evento.duracion }}</p>   
+    <p>Descripción: {{ evento.descripcion }}</p>   
+    
+    <div class="float-right">
+        <a href="{% url 'evento:homeEvento' %}" class="btn btn-danger">Regresar</a>
+    </div> 
+{% endblock  %}

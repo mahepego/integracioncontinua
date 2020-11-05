@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h2>
+        {% if not edit %}
+           Crear Evento
+        {% else %}
+            Editar Evento
+        {% endif %}
+    </h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="float-right">
+            <a href="{% url 'evento:homeEvento' %}" class="btn btn-danger">Regresar</a>
+            <button class="btn btn-primary" type="submit">Guardar</button>
+        </div>
+    </form>
+{% endblock %}

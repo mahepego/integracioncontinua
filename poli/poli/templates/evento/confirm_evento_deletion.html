@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+
+            <p>Desea eliminar el Evento <b>"{{ evento.nombre }}"</b> ?</p>
+
+            <a href="{% url 'evento:homeEvento' %}" class="btn btn-primary">No</a>
+            <button class="btn btn-danger" type="submit">Si</button>
+        </form>
+    </div>
+{% endblock %}

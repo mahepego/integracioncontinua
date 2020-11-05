@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <div>
+        <form method="post">
+            {% csrf_token %}
+
+            <p>Desea eliminar la Ubicación <b>"{{ ubicacion.nombre }}"</b> ?</p>
+
+            <a href="{% url 'ubicacion:home' %}" class="btn btn-primary">No</a>
+            <button class="btn btn-danger" type="submit">Si</button>
+        </form>
+    </div>
+{% endblock %}
