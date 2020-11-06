@@ -1,0 +1,10 @@
+{% extends 'base/base.html' %}
+
+{% load static %} 
+
+{% block content %}
+    {% csrf_token %}            
+    <div align=center>
+        <h2>{{ user.username}} Bienvenido</h2>
+    </div>
+{% endblock  %}

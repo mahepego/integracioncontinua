@@ -13,13 +13,21 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+import io
 from django.contrib import admin
 from django.urls import path, include
 
+from django.contrib.auth.views import LoginView, LogoutView
+from django.conf.urls import url
+from django.conf import settings
+
 urlpatterns = [
-    path('', include(('ubicacion.urls', 'ubicacion'), namespace='ubicacion')),
-    path('', include(('persona.urls', 'persona'), namespace='persona')),
-    path('', include(('registro.urls', 'registro'), namespace='registro')),
-    path('', include(('evento.urls', 'evento'), namespace='evento')),
-    path('admin/', admin.site.urls),
+    path('ubicacion/', include(('ubicacion.urls', 'ubicacion'), namespace='ubicacion')),
+    path('persona/', include(('persona.urls', 'persona'), namespace='persona')),
+    path('registro/', include(('registro.urls', 'registro'), namespace='registro')),
+    path('evento/', include(('evento.urls', 'evento'), namespace='evento')),
+    #path('admin/', admin.site.urls),        
+    url(r'^$', LoginView.as_view(template_name='base/login.html'), name='login'),
+    url(r'^base/$', LoginView.as_view(template_name='base/welcome.html'), name='welcome'),
+    url(r'^logout/$', LogoutView.as_view(), {'next_page': settings.LOGOUT_REDIRECT_URL}, name='logout'),
 ]
