@@ -6,6 +6,10 @@
         <h2>Eventos configurados</h2>
     {% endif %}
     
+    <div>        
+        <a href="{% url 'evento:ConsolidadoEvento' %}"><button class="btn btn-primary" type="submit">Generar Consolidado - Excel</button></a>        
+    </div>
+
     {% for evento in object_list %}
         <div class="mb-3">
             {{ evento.nombre }} 

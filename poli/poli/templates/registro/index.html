@@ -6,6 +6,10 @@
         <h2>Registros realizados</h2>
     {% endif %}
     
+    <div>
+        <a href="{% url 'registro:ConsolidadoRegistro' %}"><button class="btn btn-primary" type="submit">Generar Consolidado - Excel</button></a>     
+    </div>
+    
     {% for registro in object_list %}
         <div class="mb-3">
             {{ registro.persona }} 

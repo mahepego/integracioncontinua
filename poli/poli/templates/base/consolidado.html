@@ -1,0 +1,40 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+    <h2">Haga click sobre el consolidado que necesite: </h2>
+    
+    <div>
+        <a href="">link 1</a>
+        <a href="">link 2</a>
+        <a href="">link 3</a>
+    </div>
+
+
+
+{% if object_list %}
+    <h2>Eventos configurados</h2>
+{% endif %}
+
+{% for evento in object_list %}
+    <div class="mb-3">
+        {{ evento.nombre }} 
+        <a href="{% url 'evento:evento_create' %}">Crear</a>
+        <a href="{% url 'evento:evento_detail' evento.pk %}">Detalle</a>
+        <a href="{% url 'evento:evento_update' evento.pk %}">Modificar</a>
+        <a href="{% url 'evento:evento_delete' evento.pk %}">Eliminar</a>
+    </div>
+{% empty %}
+    <div class="empty-evento">No existen eventos en el sistema...</div>
+{% endfor %}
+
+
+
+    
+
+    <div class="float-right">
+        <a href="" class="btn btn-primary">Exportar Ubicaciones</a>
+        <a href="" class="btn btn-primary">Exportar Personas</a>
+        <a href="" class="btn btn-primary">Exportar Eventos</a>
+        <a href="" class="btn btn-primary">Exportar Registros</a>
+    </div> 
+    {% endblock  %}
