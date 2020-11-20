@@ -2,25 +2,41 @@
 
 {% block content %}
 
+<div class="container">
     {% if object_list %}
-        <h2>Ubicaciones configuradas</h2>
+        <h2>Ubicaciones Configuradas</h2>
     {% endif %}
     
+    <div class="row" style=" padding-top: 60px;">
+        <div class="col-sm-12 col-md-12 col-lg-12 mx-auto" style="float: none; margin: 0 auto;">     
+            <table class="table table-bordered">              
+                <thead>
+                <tr>
+                    <th scope="col">Ubicación</th>
+                    <th scope="col">Crear</th>
+                    <th scope="col">Detalle</th>
+                    <th scope="col">Modificar</th>
+                    <th scope="col">Eliminar</th>
+                </tr>
+                </thead>
+                <tbody>  
+                    {% for ubicacion in object_list %}
+                    <tr>
+                        <td>{{ ubicacion.nombre }} </td>
+                        <td><a href="{% url 'ubicacion:ubicacion_create' %}" ass="btn btn-success" role="button"><img src="https://img.icons8.com/pastel-glyph/2x/create-new.png" width="30px"></a></td>
+                        <td><a href="{% url 'ubicacion:ubicacion_detail' ubicacion.pk %}" class="btn btn-info" role="button"><img  src="https://gecpdsomalia.org/wp-content/uploads/2016/11/circle-detail-more-icon-221.png" width="30px"></a></td>
+                        <td><a href="{% url 'ubicacion:ubicacion_update' ubicacion.pk %}" class="btn btn-warning" role="button"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Edit_icon_%28the_Noun_Project_30184%29.svg/1024px-Edit_icon_%28the_Noun_Project_30184%29.svg.png" width="30px"></a></td>
+                        <td><a href="{% url 'ubicacion:ubicacion_delete' ubicacion.pk %}" class="btn btn-danger" role="button"><img src="https://image.flaticon.com/icons/png/512/61/61848.png" width="30px"></a></td>  
+                    </tr>
+                    {% empty %}
+                    <div class="empty-ubicacion">No existen ubicaciones en el sistema...</div>
+                {% endfor %}
+            
+                </tbody>
+            </table>
     <div>      
         <a href="{% url 'ubicacion:ConsolidadoUbicacion' %}"><button class="btn btn-primary" type="submit">Generar Consolidado - Excel</button></a>     
     </div>
-    
-    {% for ubicacion in object_list %}
-        <div class="mb-3">
-            {{ ubicacion.nombre }} 
-            <a href="{% url 'ubicacion:ubicacion_create' %}">Crear</a>
-            <a href="{% url 'ubicacion:ubicacion_detail' ubicacion.pk %}">Detalle</a>
-            <a href="{% url 'ubicacion:ubicacion_update' ubicacion.pk %}">Modificar</a>
-            <a href="{% url 'ubicacion:ubicacion_delete' ubicacion.pk %}">Eliminar</a>
-        </div>
-    {% empty %}
-        <div class="empty-ubicacion">No existen ubicaciones en el sistema...</div>
-    {% endfor %}
 
     {% if page_obj.has_previous or page_obj.has_next %}
         <nav class="mt-4">
@@ -51,4 +67,5 @@
             </ul>
         </nav>
     {% endif %}
+</div>
 {% endblock  %}

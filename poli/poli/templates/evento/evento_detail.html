@@ -1,7 +1,7 @@
 {% extends 'base/base.html' %}
 
 {% block content %}
-    <h2">Nombre: {{ evento.nombre }}</h2>
+    <h2 class="text-center">Nombre: {{ evento.nombre }}</h2>
     <a href="{% url 'evento:homeEvento' %}">Regresar</a>
     <a href="{% url 'evento:evento_update' evento.pk %}">Modificar</a>
     <a href="{% url 'evento:evento_delete' evento.pk %}">Eliminar</a>
