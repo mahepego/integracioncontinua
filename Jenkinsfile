@@ -9,7 +9,7 @@ pipeline {
 DIA=`date +"%d/%m/%Y"`
 HORA=`date +"%H:%M"`
 
-echo "Hoy es el $DIA y la hora actual es $HORA!"'''
+echo "Se ha logueado el $DIA y la hora actual es $HORA!"'''
       }
     }
 
@@ -17,37 +17,73 @@ echo "Hoy es el $DIA y la hora actual es $HORA!"'''
       parallel {
         stage('Prueba Navegadores') {
           steps {
-            sh './abrirnavegadores.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Efectuo pruebas de navegador el $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('Firefox') {
           steps {
-            sh './abrirfirefox.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Efectuo pruebas de navegador FIREFOX el $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('Chrome') {
           steps {
-            sh './abrirchrome.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Efectuo pruebas de navegador GOOGLE CHROME el $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('IExplorer') {
           steps {
-            sh './abrirexplorer.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Efectuo pruebas de navegador INTERNET EXPLORER el $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('Safari') {
           steps {
-            sh './abrirsafari.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Efectuo pruebas de navegador SAFARI el $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('Opera') {
           steps {
-            sh './abriropera.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Efectuo pruebas de navegador OPERA el $DIA y la hora actual es $HORA!"'''
           }
         }
 
@@ -58,31 +94,61 @@ echo "Hoy es el $DIA y la hora actual es $HORA!"'''
       parallel {
         stage('CRUD') {
           steps {
-            sh './ejeutarcrud.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "CRUD $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('Insertar Registro') {
           steps {
-            sh './insertarregistro.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Realizo creación de regsitro  el $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('Actualizar Registro') {
           steps {
-            sh './actualizarregistro.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Realizo actualziación de regsitro  el $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('Consultar Registro') {
           steps {
-            sh './consultarregistro.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Realizo consulta de registro  el $DIA y la hora actual es $HORA!"'''
           }
         }
 
         stage('Eliminar Registro') {
           steps {
-            sh './eliminarregistro.sh'
+            sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Realizo eliminación de regsitro  el $DIA y la hora actual es $HORA!"'''
           }
         }
 
@@ -91,13 +157,25 @@ echo "Hoy es el $DIA y la hora actual es $HORA!"'''
 
     stage('Exportar Reporte') {
       steps {
-        sh './exportarreporte.sh'
+        sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Exporte reporte en excel   el $DIA y la hora actual es $HORA!"'''
       }
     }
 
     stage('Desplegar') {
       steps {
-        sh './desplegar.sh'
+        sh '''#!/bin/bash
+
+
+DIA=`date +"%d/%m/%Y"`
+HORA=`date +"%H:%M"`
+
+echo "Este es un paso de simulacro de despliegue... NO se ha desplegado 100% - $DIA y la hora actual es $HORA!"'''
       }
     }
 
